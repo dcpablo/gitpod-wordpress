@@ -1,5 +1,5 @@
-# Gitpod docker image for WordPress | https://github.com/luizbills/gitpod-wordpress
-# License: MIT (c) 2020 Luiz Paulo "Bills"
+# Gitpod docker image for WordPress | https://github.com/dcpablo/gitpod-wordpress
+# License: MIT (c) 2021 Pablo Brincat "don"
 # Version: 0.8
 FROM gitpod/workspace-mysql
 
@@ -63,5 +63,17 @@ RUN go get github.com/mailhog/MailHog && \
     chmod +x $HOME/wp-cli.phar && \
     mv $HOME/wp-cli.phar /usr/local/bin/wp && \
     chown gitpod:gitpod /usr/local/bin/wp
+	
+RUN sudo apt-get update -q \
+    && sudo apt-get install -y php-dev
+
+RUN wget http://xdebug.org/files/xdebug-2.9.1.tgz \
+    && tar -xvzf xdebug-2.9.1.tgz \
+    && cd xdebug-2.9.1 \
+    && phpize \
+    && ./configure \
+    && make \
+    && sudo cp modules/xdebug.so /usr/lib/php/20190902 \
+    && sudo bash -c "echo -e '\nzend_extension = /usr/lib/php/20190902/xdebug.so\n[XDebug]\nxdebug.remote_enable = 1\nxdebug.remote_autostart = 1\n' >> /etc/php/7.4/cli/php.ini"
 
 USER gitpod

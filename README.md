@@ -16,6 +16,7 @@
 - Git
 - SVN
 - [MailHog](https://github.com/mailhog/MailHog)
+- [Xdebug] (http://xdebug.org)
 
 ## Install
 
