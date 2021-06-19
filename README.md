@@ -76,8 +76,8 @@ Just found a bug? Report it on GitHub [Issues](https://github.com/dcpablo/gitpod
 
 ## LICENSE
 
-MIT &copy; 2019 Luiz Paulo "Bills"
+MIT &copy; 2021 Pablo Brincat "don"
 
 ---
 
-Made with ❤ in Brazil
+Made with ❤ in London
