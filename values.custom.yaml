@@ -1,0 +1,13 @@
+components:
+  contentService:
+    remoteStorage:
+      kind: minio
+      minio:
+        endpoint: your-minio-installation.somewhere-else.com:8080
+        accessKey: enterKeyHere
+        secretKey: superSecretKeyGoesHere
+        tmpdir: /tmp
+
+# Disable built-in minio instance
+minio:
+  enabled: false
